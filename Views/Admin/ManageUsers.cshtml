@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "ManageUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <style>
+        body {
+            background-image: url('/photos/Admin.jpg'); /* Adjust the path as needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            /*background: rgba(255, 255, 255, 0.8);*/ /* Light overlay for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    </head>
+<body>    <h2>Manage Users</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td> <!-- Replace with actual data -->
+                <td>admin@example.com</td> <!-- Replace with actual data -->
+                <td>Admin</td> <!-- Replace with actual data -->
+                <td><button class="btn btn-danger btn-sm">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Back to Dashboard</a>
+    </body>
+</html>

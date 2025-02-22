@@ -1,0 +1,119 @@
+﻿@model CRMSystem.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('/photos/Admin.jpg'); /* Adjust the path as needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            /*background: rgba(255, 255, 255, 0.8);*/ /* Light overlay for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    </head>
+<body>
+    <h2>Details</h2>
+
+    <div>
+        <h4>Employee</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Role)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Position)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Position)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateHired)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateHired)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LeadID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LeadID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FollowUpDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FollowUpDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </body>
+</html>

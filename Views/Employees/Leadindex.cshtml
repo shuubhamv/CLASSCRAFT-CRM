@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CRMSystem.Models.Employee>
+@*@model IEnumerable<CRMSystem.Models.Customer>*@
+@{
+    ViewBag.Title = "Lead Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-image: url('/photos/Emp.jpg'); /* Adjust the path as needed */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        /*background: rgba(255, 255, 255, 0.8);*/ /* Light overlay for readability */
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+
+
+<h2>Lead Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Leadcreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeadID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FollowUpDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollowUpDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Details", "Leaddetails", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Delete", "Leaddelete", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table>

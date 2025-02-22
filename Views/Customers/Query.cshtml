@@ -1,0 +1,203 @@
+﻿
+@model IEnumerable<CRMSystem.Models.Customer>
+
+@{
+    ViewBag.Title = "Frequently Asked Questions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.AntiForgeryToken()
+<style>
+    body {
+        background-image: url('/photos/Student.jpg'); /* Adjust the path as needed */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        /*background: rgba(255, 255, 255, 0.8);*/ /* Light overlay for readability */
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+<h2>Faq</h2>
+
+<h2 class="text-center my-4">Frequently Asked Questions</h2>
+
+<div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                What courses are offered?
+            </button>
+        </h2>
+        <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                We offer various IT and business courses, including web development, data science, cloud computing, and more.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                What are the qualifications of the trainers?
+            </button>
+        </h2>
+        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Our trainers are industry experts with professional certifications and years of experience in their respective fields.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                What is the training format (online/in-person)?
+            </button>
+        </h2>
+        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                We provide both online and in-person training options to suit your preferences.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                What is the cost?
+            </button>
+        </h2>
+        <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Course fees vary based on duration and content. Please visit our pricing page for detailed information.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q5">
+                How long is the course?
+            </button>
+        </h2>
+        <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Our courses range from 4 weeks to 6 months, depending on the subject and depth of learning.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q6">
+                What are the prerequisites?
+            </button>
+        </h2>
+        <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Some courses require basic programming knowledge, while others are designed for beginners.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q7">
+                Are there any certifications provided?
+            </button>
+        </h2>
+        <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Yes, we provide industry-recognized certifications upon course completion.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q8">
+                What is the class size?
+            </button>
+        </h2>
+        <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                We maintain small batch sizes of 10-15 students for personalized attention.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q9">
+                How can I register?
+            </button>
+        </h2>
+        <div id="q9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                You can register on our website or contact our support team for assistance.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notes Section -->
+<h2>Ask QUestions</h2>
+
+<p>
+    @Html.ActionLink("ask que", "Notecreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+           
+        </tr>
+    }
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Noteedit", new { id = item.CustomerID }) |
+                |  @Html.ActionLink("Details", "Details", new { id = item.CustomerID })
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Query", "Query")
+</p>
+
+
+<p>
+    @Html.ActionLink("Student Dashboard", "Index")
+</p>
+<!-- Bootstrap Styling -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
